@@ -7,6 +7,7 @@
             <h1>{{ $products->title }}</h1>
             <span>$ {{ $products->price }}</span>
             <p>{{ $products->description }}</p>
+            <a href="{{ route('cart.add', $products->id)}}" class="btn btn-success">Add to cart</a>
         </section>
     </main>
 @endsection

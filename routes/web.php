@@ -16,5 +16,11 @@ Route::get('register', [App\Http\Controllers\AuthManager::class, 'register'])
 Route::post('register', [App\Http\Controllers\AuthManager::class, 'registerPost'])
     ->name('register.post');
 
-Route::get('products/{slug}', [App\Http\Controllers\ProductsManager::class, 'details'])
+Route::get('/products/{slug}', [App\Http\Controllers\ProductsManager::class, 'details'])
     ->name('products.details');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/cart/{id}', [App\Http\Controllers\ProductsManager::class, 'addToCart'])
+        ->name('cart.add');
+});
+
