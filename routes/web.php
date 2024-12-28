@@ -22,5 +22,7 @@ Route::get('/products/{slug}', [App\Http\Controllers\ProductsManager::class, 'de
 Route::middleware('auth')->group(function () {
     Route::get('/cart/{id}', [App\Http\Controllers\ProductsManager::class, 'addToCart'])
         ->name('cart.add');
+    Route::get('/cart', [App\Http\Controllers\ProductsManager::class, 'showCart'])
+        ->name('cart.show');
 });
 

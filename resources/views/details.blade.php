@@ -3,7 +3,17 @@
 @section('content')
     <main class="container" style="max-width: 900px">
         <section>
-            <img src="{{ $products->image }}" alt="{{ $products->title }}" style="width: 100%">
+            <img src="{{ $products->image }}" alt="{{ $products->title }}" style="width: 100%" class="mb-3">
+            @if (session()->has('success'))
+                <div class="alert alert-success">
+                    {{session('success')}}
+                </div>
+            @endif
+            @if (session()->has('error'))
+                <div class="alert alert-danger">
+                    {{session('error')}}
+                </div>
+            @endif
             <h1>{{ $products->title }}</h1>
             <span>$ {{ $products->price }}</span>
             <p>{{ $products->description }}</p>
