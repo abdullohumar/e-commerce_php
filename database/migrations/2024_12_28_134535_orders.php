@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('pincode');
             $table->string('phone');
+            $table->string('payment_id')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });
