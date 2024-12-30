@@ -24,5 +24,9 @@ Route::middleware('auth')->group(function () {
         ->name('cart.add');
     Route::get('/cart', [App\Http\Controllers\ProductsManager::class, 'showCart'])
         ->name('cart.show');
+    Route::get('/checkout', [App\Http\Controllers\OrdersManager::class, 'showCheckout'])
+        ->name('checkout.show');
+    Route::post('/checkout', [App\Http\Controllers\OrdersManager::class, 'processCheckout'])
+        ->name('checkout.post');
 });
 
